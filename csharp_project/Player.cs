@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+
+
 using Godot;
 using System;
 using System.Collections.Generic;
@@ -5,11 +8,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Linq;
+using System.Reflection;
+
 
 #if GODOT_WEB
 using System.Runtime.InteropServices.JavaScript;
 #endif
 using System.Threading.Tasks;
+
 
 namespace Sample;
 
@@ -24,6 +30,8 @@ public partial class Player : CharacterBody3D
     public Player()
     {
         GD.Print("Player constructor");
+        GD.Print($"Assembly has DisableRuntimeMarshalling: {Assembly.GetExecutingAssembly().GetCustomAttribute<DisableRuntimeMarshallingAttribute>() is not null}");
+
         Variant variant = new Node3D();
         if (variant.AsGodotObject() is not null)
         {

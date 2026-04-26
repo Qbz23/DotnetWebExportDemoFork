@@ -1,8 +1,15 @@
 <Project Sdk="Godot.NET.Sdk/4.7.0-beta">
     <PropertyGroup>
         <AssemblyName>CSharpSample</AssemblyName>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+        <!-- <GodotDisableRuntimeMarshalling>true</GodotDisableRuntimeMarshalling> -->
+        <!-- <GodotDisableRuntimeMarshalling>false</GodotDisableRuntimeMarshalling> -->
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(GodotTargetPlatform)' == 'web' ">
+        <EnableDynamicLoading>false</EnableDynamicLoading>
+        <RunAOTCompilation>true</RunAOTCompilation>
     </PropertyGroup>
 </Project>
