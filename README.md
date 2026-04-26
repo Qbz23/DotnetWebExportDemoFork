@@ -2,7 +2,7 @@
 
 Link https://noctemcat.itch.io/wasm-demo
 
-## Major considerations 
+## Major downsides 
 
 - It will force the support for Emscripten 3.1.56 until C# is updated (https://github.com/dotnet/runtime/issues/113786).
 - Can't export with GDExtension supported, C# can't be build with `-sMAIN_MODULE` flag.
@@ -10,7 +10,7 @@ Link https://noctemcat.itch.io/wasm-demo
 If wasm will move to CoreCLR https://github.com/dotnet/runtime/issues/121511 after updating emscipten to be new enough to use 
 allow-multiple-definition https://github.com/llvm/llvm-project/pull/97699 this won't be a problem.
 
-## Small annoyances
+## Small downsides
 
 - Slow to export, as it needs to link Godot as a static library.
 - C# multithreading runs main C# thread as a thread https://github.com/dotnet/runtime/issues/101421, https://github.com/dotnet/runtime/issues/126438.
@@ -21,6 +21,7 @@ allow-multiple-definition https://github.com/llvm/llvm-project/pull/97699 this w
 - C# JS interop in multithreading doesn't allow sync C#->JS->C# or JS->C#->JS, with `jsThreadBlockingMode: 'ThrowWhenBlockingWait'` 
 it allows sync C#->JS and JS->C#, but that's all. More info https://github.com/dotnet/runtime/issues/101421#issuecomment-2072439395 
 and this seems also correct https://dev.to/lostbeard/blazor-wasms-deputy-thread-model-will-break-javascript-interop-heres-why-that-matters-1n9n.
+- On Windows it requires the project to be on the `C:` drive.
 
 ## Big hacks
 
