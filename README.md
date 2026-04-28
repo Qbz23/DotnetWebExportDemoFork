@@ -21,7 +21,6 @@ allow-multiple-definition https://github.com/llvm/llvm-project/pull/97699 this w
 - C# JS interop in multithreading doesn't allow sync C#->JS->C# or JS->C#->JS, with `jsThreadBlockingMode: 'ThrowWhenBlockingWait'` 
 it allows sync C#->JS and JS->C#, but that's all. More info https://github.com/dotnet/runtime/issues/101421#issuecomment-2072439395 
 and this seems also correct https://dev.to/lostbeard/blazor-wasms-deputy-thread-model-will-break-javascript-interop-heres-why-that-matters-1n9n.
-- On Windows it requires the project to be on the `C:` drive.
 
 ## Big hacks
 
